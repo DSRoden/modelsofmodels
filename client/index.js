@@ -14,10 +14,10 @@
   .run(['$rootScope', '$http', function($rootScope, $http){
       $http.get('/status').then(function(response){
 console.log('repsonse from status', response);
-        //$rootScope.rootuser = response.data;
+        $rootScope.rootuser = true;
       }, function(){
         console.log('response from status empty');
-        $rootScope.rootuser = null;
+        $rootScope.rootuser = false;
       });
     }])
   .config(function($stateProvider, $urlRouterProvider, $httpProvider){

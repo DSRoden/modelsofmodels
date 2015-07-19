@@ -5,8 +5,8 @@ var User = require('../models/user'),
 
 exports.status = function(req, res){
   sess= req.session;
-  if(sess.userId){
-  res.send(sess.userId);
+  if(sess.email){
+  res.send(sess.email);
   } else {
     res.send('not logged in');
   }
@@ -14,9 +14,7 @@ exports.status = function(req, res){
 
 exports.register = function(req, res){
   User.register(req.body, function(err, user){
-    console.log('req.body from register', req.body);
     if(user){
-
       res.status(200).end();
     }else{
       res.status(400).end();
@@ -25,11 +23,11 @@ exports.register = function(req, res){
 };
 
 exports.login = function(req, res){
-  console.log('req', req);
+  sess= req.session;
   User.login(req.body, function(err, user){
     if(user){
-        req.session.userId = user._id;
-        res.status(200).end();
+        sess.email = user.email;
+        res.send({email: user.email}).end();
     }else{
       res.status(401).end();
     }
@@ -37,8 +35,8 @@ exports.login = function(req, res){
 };
 
 exports.logout = function(req, res){
-  req.session.destroy(function(){
-    res.setHeader('X-Authenticated-User', 'anonymous');
+  sess=req.session;
+  sess.destroy(function(){
     res.status(200).end();
   });
 };

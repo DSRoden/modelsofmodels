@@ -22,9 +22,17 @@
       });
     }
 
+    function logout(cb){
+      $http.get('/logout').then(function(response){
+        cb(response);
+      }, function(response){
+        console.log('error logging out');
+      });
+    }
     return {
         register: register,
-        login: login
+        login: login,
+        logout: logout
     };
   }]);
 })();
