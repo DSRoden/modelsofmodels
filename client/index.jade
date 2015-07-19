@@ -1,0 +1,35 @@
+doctype html
+html(ng-app='models', lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title MEAN Template
+    link(href='style/index.css', rel='stylesheet')
+
+    //- vendor
+    script(src='/vendor/jquery/dist/jquery.js')
+    script(src='/vendor/angular/angular.js')
+    script(src='/vendor/underscore/underscore.js')
+    script(src='/vendor/localforage/dist/localforage.js')
+    script(src='/vendor/angular-localforage/dist/angular-localForage.js')
+    script(src='/vendor/angular-ui-router/release/angular-ui-router.js')
+    script(src='/vendor/famous/dist/famous-global.js')
+    script(src='/vendor/famous-angular/dist/famous-angular.js')
+
+    //- index
+    script(src='/index.js')
+    //-controllers
+    script(type='text/javascript', src='components/controllers/main-controller.js')
+    script(type='text/javascript', src='components/controllers/account-controller.js')
+    //-factories
+    script(type='text/javascript', src='components/factories/http-interceptor.js')
+    script(type='text/javascript', src='components/factories/account-factory.js')
+
+
+       
+  body
+    fa-app
+        ui-view(fa-animate-leave='leave($done)', fa-animate-enter='enter($done)')
+   
+

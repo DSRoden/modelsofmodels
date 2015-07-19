@@ -1,0 +1,10 @@
+fa-view
+	//- MAIN VIEW
+	fa-modifier(fa-opacity="mainViewOpacity")
+		fa-view(ng-controller="AcctCtrl" fa-size='[getPageWidth(), getPageHeight()]')
+			fa-surface(fa-size='[getPageWidth(), 35]' fa-background-color="'red'") MOMS
+			fa-surface(fa-background-color="'pink'" fa-size="[200, 100]")
+				input.email(type="text" ng-model="user.email" placeholder="Email")
+				input.password(type="text" ng-model="user.password" placeholder="Password")
+				input.confirm-password(type="text" ng-model="confirmPassword" ng-change="checkPassword()" placeholder="Confirm Password")
+			fa-surface(fa-background-color="'pink'" fa-size="[200, 100]" ng-click="register()") Register
