@@ -33,5 +33,14 @@ User.login = function(o, cb){
   });
 };
 
+User.facebookAuthenticate = function(token, secret, facebook, cb){
+  console.log('facebook authentication in user model, token', token);
+  User.collection.findOne({facebookId:facebook.id}, function(err, user){
+    if(user){return cb(null, user);}
+    user = {facebookId:facebook.id, username:facebook.displayName, displayName:facebook.displayName, email:facebook.displayName, type:'facebook', loc:{}, isPublic:true, photos: [], favorites :[]};
+    User.collection.save(user, cb);
+  });
+};
+
 module.exports = User;
 

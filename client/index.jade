@@ -11,6 +11,8 @@ html(ng-app='models', lang='en')
     //- vendor
     script(src='/vendor/jquery/dist/jquery.js')
     script(src='/vendor/angular/angular.js')
+    script(src='/vendor/angular-cookies/angular-cookies.js')
+
     script(src='/vendor/underscore/underscore.js')
     script(src='/vendor/localforage/dist/localforage.js')
     script(src='/vendor/angular-localforage/dist/angular-localForage.js')
@@ -23,9 +25,13 @@ html(ng-app='models', lang='en')
     //-controllers
     script(type='text/javascript', src='components/controllers/main-controller.js')
     script(type='text/javascript', src='components/controllers/account-controller.js')
+    script(type='text/javascript', src='components/controllers/thanks-controller.js')
+
     //-factories
     script(type='text/javascript', src='components/factories/http-interceptor.js')
     script(type='text/javascript', src='components/factories/account-factory.js')
+    script(type='text/javascript', src='components/factories/oauth-factory.js')
+
 
 
        

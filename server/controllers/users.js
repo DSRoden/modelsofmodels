@@ -1,6 +1,7 @@
 'use strict';
 
 var User = require('../models/user'),
+    passport = require('passport'),
     sess;
 
 exports.status = function(req, res){
@@ -40,4 +41,22 @@ exports.logout = function(req, res){
     res.status(200).end();
   });
 };
+
+exports.oauthCallback = function(strategy){
+  return function(req, res, next){
+    passport.authenticate(strategy, function(err, user, redirectURL){
+      if(err || !user){
+        return res.redirect('/#/');
+      }
+      req.login(user, function(err){
+        if (err) {
+          return res.redirect('/#/');
+        }
+
+        return res.redirect(redirectURL || '/');
+      });
+    })(req, res, next);
+  };
+};
+
 

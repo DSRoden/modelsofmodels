@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   angular.module('models')
-  .controller('AcctCtrl', ['$scope', '$rootScope', '$timeout', '$famous', 'Account', function($scope, $rootScope, $timeout, $famous, Account){
+  .controller('AcctCtrl', ['$scope', '$rootScope', '$timeout', '$famous', 'Account', 'Oauth', function($scope, $rootScope, $timeout, $famous, Account, Oauth){
     $scope.user = {};
     function presets(){
       $scope.confirmPassword = '';
@@ -64,5 +64,11 @@
           presets();
       });
     }
+
+
+    /*********** OAUTH **************/
+    $scope.oauthFacebook = function(){
+      Oauth.authenticate('facebook');
+    };
   }]);
 })();
