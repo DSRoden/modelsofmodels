@@ -34,7 +34,7 @@ module.exports = function(app, express){
   app.get('/auth/twitter/callback', passport.authenticate('twitter', {successRedirect:'/#/thanks', failureRedirect:'/#/'}));
 
   app.get('/auth/google', passport.authenticate('google',  {scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/plus.profile.emails.read']}));
-  app.get('/auth/google/callback', passport.authenticate('google', {successRedirect:'/#/thank', failureRedirect:'/#/'}));
+  app.get('/auth/google/callback', passport.authenticate('google', {successRedirect:'/#/thanks', failureRedirect:'/#/'}));
 
   console.log('Express: Routes Loaded');
 };
