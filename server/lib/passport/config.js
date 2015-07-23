@@ -2,7 +2,7 @@
 
 // var local       = require('./local'),
 var serialize   = require('./serialize'),
-    // twitter     = require('./twitter'),
+    twitter     = require('./twitter'),
     // google      = require('./google'),
     facebook    = require('./facebook'),
     //reddit      = require('./reddit'),
@@ -11,7 +11,7 @@ var serialize   = require('./serialize'),
 
 module.exports = function(passport, app){
   // passport.use(local);
-  // passport.use(twitter);
+  passport.use(twitter);
   passport.use(facebook);
   //passport.use(github);
   //passport.use(reddit);

@@ -10,7 +10,9 @@ fa-view
 						fa-surface.account-item1(fa-size='[200, 40]' fa-background-color="'pink'" ng-click="viewLogin()") Login
 						fa-surface.account-item2(fa-size='[200, 40]' fa-background-color="'pink'" ng-click="viewRegister()") Register
 						fa-surface.account-item3(fa-size='[200, 40]' fa-background-color="'pink'" ng-click="logout()") Logout
-						fa-surface.account-item4(fa-size='[200, 40]' fa-background-color="'pink'" ng-click="oauthFacebook()") Facebook
+						fa-surface.account-item4(fa-size='[200, 40]' fa-background-color="'pink'" ng-click="oauthLogin('facebook')") Facebook
+						fa-surface.account-item4(fa-size='[200, 40]' fa-background-color="'pink'" ng-click="oauthLogin('twitter')") Twitter
+
 
 			fa-modifier(ng-show="showLogin")
 				fa-surface.register-login-view(fa-background-color="'pink'" fa-size="[200, 100]")

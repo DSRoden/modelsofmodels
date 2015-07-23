@@ -67,8 +67,8 @@
 
 
     /*********** OAUTH **************/
-    $scope.oauthFacebook = function(){
-      Oauth.authenticate('facebook');
+    $scope.oauthLogin = function(network){
+      Oauth.authenticate(network);
     };
   }]);
 })();

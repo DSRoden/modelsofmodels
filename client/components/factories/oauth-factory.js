@@ -16,7 +16,7 @@
           displayPopup(authUrl, network, screen.width/2 - 200, screen.height/2 - 250, 400, 500);
         break;
         case 'twitter':
-          // authUrl = origin+'/auth/twitter';
+          authUrl = '/auth/twitter';
           displayPopup(authUrl, network, screen.width/2 - 200, screen.height/2 - 250, 415, 500);
         break;
       }

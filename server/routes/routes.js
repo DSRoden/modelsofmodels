@@ -26,17 +26,12 @@ module.exports = function(app, express){
   app.get('/logout', users.logout);
 
   // oauth routes
-  // app.get('/auth/facebook', passport.authenticate('facebook', {
-  //  scope: ['email']
-  // }));
-  // app.get('/auth/facebook/callback', users.oauthCallback('facebook'));
-
-
   app.get('/auth/facebook', passport.authenticate('facebook'));
   app.get('/auth/facebook/callback', passport.authenticate('facebook', {successRedirect:'/#/thanks', failureRedirect:'/#/'}));
 
+  app.get('/auth/twitter', passport.authenticate('twitter'));
+  app.get('/auth/twitter/callback', passport.authenticate('twitter', {successRedirect:'/#/thanks', failureRedirect:'/#/'}));
 
-  // // Setting the twitter oauth routes
   // app.route('/auth/twitter').get(passport.authenticate('twitter'));
   // app.route('/auth/twitter/callback').get(users.oauthCallback('twitter'));
 
