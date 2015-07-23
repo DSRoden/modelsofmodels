@@ -32,8 +32,8 @@ module.exports = function(app, express){
   app.get('/auth/twitter', passport.authenticate('twitter'));
   app.get('/auth/twitter/callback', passport.authenticate('twitter', {successRedirect:'/#/thanks', failureRedirect:'/#/'}));
 
-  // app.route('/auth/twitter').get(passport.authenticate('twitter'));
-  // app.route('/auth/twitter/callback').get(users.oauthCallback('twitter'));
+  app.get('/auth/google', passport.authenticate('google',  {scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/plus.profile.emails.read']}));
+  app.get('/auth/google/callback', passport.authenticate('google', {successRedirect:'/#/thank', failureRedirect:'/#/'}));
 
   console.log('Express: Routes Loaded');
 };

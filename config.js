@@ -15,10 +15,10 @@ config.facebook = {
   callbackURL : 'http://localhost:3333/auth/facebook/callback'
 };
 
-// config.google = {
-//   clientId : '24882528842-ktibs3f3tdfnrcdih16mtl8cpcpdr7pm.apps.googleusercontent.com',
-//   clientSecret : process.env.GOOGLE_SECRET,
-//   callbackURL : 'http://daniel-vm.com:3333/auth/google/callback'
-// };
+config.google = {
+  clientId : process.env.GOOGLE_ID,
+  clientSecret : process.env.GOOGLE_SECRET,
+  callbackURL : 'http://localhost:3333/auth/google/callback'
+};
 
 module.exports = config;

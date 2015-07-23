@@ -58,5 +58,14 @@ User.twitterAuthenticate = function(token, secret, twitter, cb){
   });
 };
 
+User.googleAuthenticate = function(token, secret, google, cb){
+  console.log(google);
+  User.collection.findOne({googleId:google.id}, function(err, user){
+    if(user){return cb(null, user);}
+    user = {googleId:google.id, username:google.displayName, displayName:google.displayName,email:google.displayName, type:'google', loc:{}, isPublic:true, photos: [], favorites : []};
+    User.collection.save(user, cb);
+  });
+};
+
 module.exports = User;
 
