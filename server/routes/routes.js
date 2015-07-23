@@ -23,6 +23,7 @@ module.exports = function(app, express){
   app.post('/register', users.register);
   app.get('/status', users.status);
   app.post('/login', users.login);
+
   app.get('/logout', users.logout);
 
   // oauth routes

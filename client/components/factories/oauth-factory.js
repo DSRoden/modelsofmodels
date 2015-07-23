@@ -11,18 +11,19 @@
           authUrl = '/auth/facebook';
           displayPopup(authUrl, network, screen.width/2 - 200, screen.height/2 - 250, 400, 500);
           break;
-        case 'google':
-          authUrl = '/auth/google';
-          displayPopup(authUrl, network, screen.width/2 - 200, screen.height/2 - 250, 400, 500);
-        break;
         case 'twitter':
           authUrl = '/auth/twitter';
           displayPopup(authUrl, network, screen.width/2 - 200, screen.height/2 - 250, 415, 500);
+        break;
+        case 'google':
+          authUrl = '/auth/google';
+          displayPopup(authUrl, network, screen.width/2 - 200, screen.height/2 - 250, 400, 500);
         break;
       }
     }
 
     function displayPopup(authUrl, network, positionLeft, positionTop, width, height){
+      /* jshint unused:false */
       var popup = $window.open(authUrl, '_blank', 'top=' + positionTop + ',left=' + positionLeft + ',width='+width+',height='+height);
       console.log($cookies.getAll());
     }
