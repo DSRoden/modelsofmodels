@@ -4,6 +4,7 @@ var morgan         = require('morgan'),
     bodyParser     = require('body-parser'),
     methodOverride = require('express-method-override'),
     session        = require('express-session'),
+    security       = require('../lib/security'),
     debug          = require('../lib/debug'),
     users          = require('../controllers/users'),
     passport       = require('passport'),
@@ -24,8 +25,6 @@ module.exports = function(app, express){
   app.get('/status', users.status);
   app.post('/login', users.login);
 
-  app.get('/logout', users.logout);
-
   // oauth routes
   app.get('/auth/facebook', passport.authenticate('facebook'));
   app.get('/auth/facebook/callback', passport.authenticate('facebook', {successRedirect:'/#/thanks', failureRedirect:'/#/'}));
@@ -36,6 +35,9 @@ module.exports = function(app, express){
   app.get('/auth/google', passport.authenticate('google',  {scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/plus.profile.emails.read']}));
   app.get('/auth/google/callback', passport.authenticate('google', {successRedirect:'/#/thanks', failureRedirect:'/#/'}));
 
-  console.log('Express: Routes Loaded');
+
+  app.use(security.bounce);
+  app.get('/logout', users.logout);
+  //console.log('Express: Routes Loaded');
 };
 

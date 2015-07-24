@@ -17,8 +17,8 @@
     };
     $scope.title = 'thanks';
 
-    $timeout(function(){
-      window.close();
-    }, 2000);
+    // $timeout(function(){
+    //   window.close();
+    // }, 2000);
   }]);
 })();

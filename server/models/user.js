@@ -46,7 +46,7 @@ User.twitterAuthenticate = function(token, secret, twitter, cb){
   User.collection.findOne({twitterId:twitter.id}, function(err, user){
     if(user){return cb(null, user);}
     user = {twitterId:twitter.id, username:twitter.username, displayName:twitter.displayName,email:twitter.displayName, type:'twitter', loc:{}, isPublic:true, photos: [], favorites : []};
-    User.collection.save(user, cb);
+    User.collection.save(user, cb(null, user));
   });
 };
 
