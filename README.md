@@ -36,11 +36,10 @@ Collection 2
 ### Running Tests
 ```bash
 $ npm install
-$ npm test
 ```
 
 ### Contributors
-- [Chyld Medford](https://github.com/chyld)
+- [DSRoden](https://github.com/dsroden)
 
 ### License
 [MIT](LICENSE)
