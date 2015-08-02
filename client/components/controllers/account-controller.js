@@ -45,6 +45,7 @@
     $scope.logout = function(){
       Account.logout(function(response){
         console.log('logged out', response);
+        $localStorage.name = '';
       });
     };
     function register(user){
@@ -60,7 +61,7 @@
     function login(user){
       Account.login($scope.user, function(response){
           console.log('response from login', response);
-          $rootScope.rootuser.name = response.data.email;
+          $localStorage.name = response.data.email;
           presets();
       });
     }

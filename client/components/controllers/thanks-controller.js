@@ -22,7 +22,9 @@
         $rootScope.rootuser.email = response.data;
         $rootScope.$broadcast('email');
         $localStorage.name = response.data;
-        window.close();
+        $timeout(function(){
+          window.close();
+        }, 200);
       }, function(response){
         console.log('response error from status', response);
         // $rootScope.rootuser = false;
