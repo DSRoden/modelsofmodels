@@ -29,8 +29,5 @@
         console.log('response error from status', response);
         // $rootScope.rootuser = false;
     });
-    // $timeout(function(){
-    //   window.close();
-    // }, 2000);
   }]);
 })();
