@@ -6,6 +6,7 @@ var User = require('../models/user'),
 
 exports.status = function(req, res){
   sess= req.session;
+  // console.log(req);
   if(sess.email){
   res.send(sess.email);
   } else {

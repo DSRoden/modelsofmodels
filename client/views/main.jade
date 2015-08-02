@@ -3,7 +3,7 @@ fa-view
 	fa-modifier(fa-opacity="mainViewOpacity")
 		fa-view(ng-controller="AcctCtrl" fa-size='[getPageWidth(), getPageHeight()]')
 			fa-surface(fa-size='[getPageWidth(), 60]' fa-background-color="'red'")
-			fa-surface.account(fa-size='[200, 60]' ng-click="viewAccount()") Account
+			fa-surface.account(fa-size='[200, 60]' ng-click="viewAccount()") {{rootuser.name}}
 			fa-modifier(ng-show="showAccount")
 				fa-surface.account-items
 					fa-app

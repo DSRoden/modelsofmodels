@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   angular.module('models')
-  .controller('AcctCtrl', ['$scope', '$rootScope', '$timeout', '$famous', 'Account', 'Oauth', function($scope, $rootScope, $timeout, $famous, Account, Oauth){
+  .controller('AcctCtrl', ['$scope', '$rootScope', '$timeout', '$famous', 'Account', '$state', 'Oauth', '$localStorage', function($scope, $rootScope, $timeout, $famous, Account, $state, Oauth, $localStorage){
     $scope.user = {};
     function presets(){
       $scope.confirmPassword = '';
@@ -60,7 +60,7 @@
     function login(user){
       Account.login($scope.user, function(response){
           console.log('response from login', response);
-          $rootScope.rootuser = true;
+          $rootScope.rootuser.name = response.data.email;
           presets();
       });
     }
@@ -70,5 +70,9 @@
     $scope.oauthLogin = function(network){
       Oauth.authenticate(network);
     };
+
+    $rootScope.$on('email', function(data){
+      $state.reload();
+    });
   }]);
 })();

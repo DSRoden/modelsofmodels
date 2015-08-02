@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  angular.module('models', ['ui.router', 'LocalForageModule', 'famous.angular', 'ngCookies'])
+  angular.module('models', ['ui.router', 'LocalForageModule', 'famous.angular', 'ngCookies', 'ngStorage'])
   .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$localForageProvider', function($stateProvider, $urlRouterProvider, $httpProvider, $localForageProvider){
      $urlRouterProvider.otherwise('/');
 
@@ -12,10 +12,11 @@
     //$httpProvider.interceptors.push('HttpInterceptor');
     $localForageProvider.config({name:'models', storeName:'cache', version:1.0});
   }])
-  .run(['$rootScope', '$http', function($rootScope, $http){
+  .run(['$rootScope', '$http', '$localStorage', function($rootScope, $http, $localStorage){
+      $rootScope.rootuser = {};
       $http.get('/status').then(function(response){
         console.log('repsonse from status', response);
-        $rootScope.rootuser = true;
+        $localStorage.name = response.data;
       }, function(){
         console.log('response from status empty');
         $rootScope.rootuser = false;

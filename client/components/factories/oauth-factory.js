@@ -24,8 +24,22 @@
 
     function displayPopup(authUrl, network, positionLeft, positionTop, width, height){
       /* jshint unused:false */
-      var popup = $window.open(authUrl, '_blank', 'top=' + positionTop + ',left=' + positionLeft + ',width='+width+',height='+height);
-      console.log($cookies.getAll());
+      var popup = $window.open(authUrl, '_blank', 'top=' + positionTop + ',left=' + positionLeft + ',width='+width+',height='+height),
+       interval = 1000,
+
+      //check popup vlaue on interval
+      i = $interval(function(){
+        interval += 500;
+        try {
+          if(popup.value){
+            $interval.cancel(i);
+            popup.close();
+            console.log('Successfully added '+network+'.');
+          }
+        } catch(e){
+          //console.log(e);
+        }
+      }, interval);
     }
 
     return {

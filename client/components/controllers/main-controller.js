@@ -1,7 +1,11 @@
 (function(){
   'use strict';
   angular.module('models')
-  .controller('MainCtrl', ['$scope', '$rootScope', '$timeout', '$famous', function($scope, $rootScope, $timeout, $famous){
+  .controller('MainCtrl', ['$scope', '$rootScope', '$timeout', '$famous', '$localStorage', function($scope, $rootScope, $timeout, $famous, $localStorage){
+    $scope.$watch(function(){return $localStorage.name;},function(newVal,oldVal){
+        console.log('va', newVal, oldVal);
+        $rootScope.rootuser.name = $localStorage.name;
+    });
     /******************************************* INITIATE FAMOUS HANDLERS, TRANSITIONS, ANIMATIONS, OPTIONS****************************/
     var Transitionable = $famous['famous/transitions/Transitionable'],
         // Easing = $famous['famous/transitions/Easing'],
