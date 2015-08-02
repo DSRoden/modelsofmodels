@@ -12,14 +12,10 @@
     //$httpProvider.interceptors.push('HttpInterceptor');
     $localForageProvider.config({name:'models', storeName:'cache', version:1.0});
   }])
-  .run(['$rootScope', '$http', '$localStorage', function($rootScope, $http, $localStorage){
+  .run(['$rootScope', '$http', '$localStorage', 'Status', function($rootScope, $http, $localStorage, Status){
       $rootScope.rootuser = {};
-      $http.get('/status').then(function(response){
-        console.log('repsonse from status', response);
-        $localStorage.name = response.data;
-      }, function(){
-        console.log('response from status empty');
-        $rootScope.rootuser = false;
+      Status.getStatus(function(data){
+        $rootScope.rootuser.name = data;
       });
     }])
   .config(function($stateProvider, $urlRouterProvider, $httpProvider){
